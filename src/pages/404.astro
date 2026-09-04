@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Page not found" description="The requested LogMyFlight page could not be found." noindex>
+  <section class="missing container"><p class="eyebrow">404 · Off course</p><h1>This page isn’t in the logbook.</h1><p class="lede">The address may have changed, or the page may no longer exist.</p><a class="button" href="/">Return home</a></section>
+</BaseLayout>
+<style>.missing{align-items:center;display:flex;flex-direction:column;min-height:70vh;justify-content:center;padding-block:80px;text-align:center}.missing h1{font-size:clamp(3rem,7vw,5.8rem);max-width:850px;margin:.7rem 0 1.2rem}.missing .button{margin-top:2rem}</style>
+

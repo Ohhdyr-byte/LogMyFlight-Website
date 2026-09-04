@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+const subject = encodeURIComponent('LogMyFlight support request');
+const body = encodeURIComponent('Please describe what happened (do not include sensitive flight information):\n\nApp version:\nDevice model:\niOS/iPadOS version:\n');
+const supportUrl = `mailto:${site.supportEmail}?subject=${subject}&body=${body}`;
+const faqs = [
+  ['How do I add or edit a flight?', 'TODO: Add the final steps from the released app before launch.'],
+  ['How does iCloud synchronization work?', 'LogMyFlight uses CloudKit to synchronize records through your Apple account. TODO: Add confirmed troubleshooting steps and expected sync timing.'],
+  ['Why are my records not appearing on another device?', 'TODO: Confirm the released app’s requirements, then document iCloud sign-in, connectivity, and synchronization troubleshooting here.'],
+  ['How do I customise my logbook?', 'TODO: Describe the customization controls available in the released app.'],
+  ['Which photos can LogMyFlight access?', 'Only photos you explicitly select for attachment are made available to the app.'],
+  ['How do I manage or delete a flight record?', 'TODO: Add the exact edit and deletion steps from the released app before launch.'],
+];
+---
+<BaseLayout title="Support" description="Help, frequently asked questions, and contact information for LogMyFlight.">
+  <section class="support-hero container"><p class="eyebrow">LogMyFlight support</p><h1>How can we help?</h1><p class="lede">Find answers to common questions or contact us if you need a hand.</p></section>
+  <section class="faq container" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><div class="questions">{faqs.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+  <section class="contact container"><div><p class="eyebrow">Still need help?</p><h2>Talk to a person.</h2><p class="lede">Tell us what happened and include your app version, device, and operating system. Please do not send sensitive flight information.</p></div><a class="button" href={supportUrl}>Email support</a><p class="address">Current placeholder: {site.supportEmail}</p></section>
+</BaseLayout>
+<style>
+  .support-hero{padding-block:110px 80px;text-align:center}.support-hero h1{margin:.6rem 0 1rem}.faq{max-width:860px;padding-bottom:110px}.faq h2{font-size:2.3rem;margin-bottom:2rem}.questions{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:1.25rem 0}summary{align-items:center;cursor:pointer;display:flex;font-size:1.12rem;font-weight:650;justify-content:space-between;list-style:none}summary::-webkit-details-marker{display:none}summary span{color:var(--accent);font-size:1.5rem;transition:transform .2s}details[open] summary span{transform:rotate(45deg)}details p{color:var(--muted);padding:1rem 2rem 0 0}.contact{align-items:center;background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--radius);display:grid;gap:1.5rem 3rem;grid-template-columns:1fr auto;margin-bottom:110px;padding:clamp(2rem,5vw,4rem)}.contact h2{font-size:2.6rem;margin:.5rem 0 1rem}.address{color:var(--muted);font-size:.78rem;grid-column:1/-1}@media(max-width:700px){.contact{grid-template-columns:1fr}.address{grid-column:auto}}
+</style>

@@ -1,8 +1,8 @@
-# Astro Starter Kit: Minimal
+# LogMyFlight Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Static promotional, support, privacy, and terms website for LogMyFlight.
+
+Before publishing, replace every launch placeholder. The main values live in `src/config/site.ts`; also update `astro.config.mjs`, `public/CNAME`, screenshots, the app icon, and social artwork. Search for `TODO` and `example.com` as a final check.
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 

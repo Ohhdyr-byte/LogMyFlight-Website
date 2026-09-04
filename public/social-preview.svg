@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#eaf5ff"/><stop offset="1" stop-color="#9dceff"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/><circle cx="1010" cy="110" r="240" fill="#fff" opacity=".3"/>
+  <text x="100" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="96" font-weight="700" fill="#102a43">LogMyFlight</text>
+  <text x="100" y="350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="42" fill="#315a7d">Every flight. Your way.</text>
+  <text x="100" y="455" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="28" fill="#416b8d">TODO: Replace with final social preview artwork</text>
+</svg>
+
