@@ -1,0 +1,75 @@
+<div class="flight-path" data-flight-path aria-hidden="true">
+  <svg viewBox="0 0 1000 2400" preserveAspectRatio="none" focusable="false">
+    <path class="route route-shadow" d="M790 50 C900 250 810 390 610 490 C310 640 175 760 255 990 C335 1220 825 1115 820 1430 C815 1700 365 1660 300 1900 C250 2080 455 2220 510 2350" />
+    <path class="route route-dashes" data-route d="M790 50 C900 250 810 390 610 490 C310 640 175 760 255 990 C335 1220 825 1115 820 1430 C815 1700 365 1660 300 1900 C250 2080 455 2220 510 2350" />
+    <g class="waypoints" data-waypoints>
+      <circle cx="610" cy="490" r="9" data-at="0.2"/><circle cx="255" cy="990" r="9" data-at="0.43"/><circle cx="820" cy="1430" r="9" data-at="0.64"/><circle cx="300" cy="1900" r="9" data-at="0.84"/><circle cx="510" cy="2350" r="11" data-at="0.98"/>
+    </g>
+    <g class="aircraft" data-aircraft>
+      <g class="aircraft-art">
+        <circle r="25" class="aircraft-glow" />
+        <path d="M25 0 4-5-8-29-16-29-10-4-27-2-27 2-10 4-16 29-8 29 4 5 25 0Z" />
+      </g>
+    </g>
+  </svg>
+</div>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const root = document.querySelector<HTMLElement>('[data-flight-journey]');
+  const route = document.querySelector<SVGPathElement>('[data-route]');
+  const aircraft = document.querySelector<SVGGElement>('[data-aircraft]');
+  const device = document.querySelector<HTMLElement>('[data-flight-device]');
+  const waypoints = [...document.querySelectorAll<SVGCircleElement>('[data-at]')];
+
+  if (root && route && aircraft) {
+    document.documentElement.classList.add('motion-ready');
+    let pathLength = route.getTotalLength();
+    let start = 0;
+    let distance = 1;
+    let ticking = false;
+
+    const measure = () => {
+      const rect = root.getBoundingClientRect();
+      start = window.scrollY + rect.top - window.innerHeight * 0.28;
+      distance = Math.max(rect.height - window.innerHeight * 0.58, 1);
+      pathLength = route.getTotalLength();
+      update();
+    };
+
+    const update = () => {
+      ticking = false;
+      const progress = Math.min(1, Math.max(0, (window.scrollY - start) / distance));
+      const position = pathLength * progress;
+      const point = route.getPointAtLength(position);
+      const next = route.getPointAtLength(Math.min(pathLength, position + 3));
+      const angle = Math.atan2(next.y - point.y, next.x - point.x) * 180 / Math.PI;
+
+      if (!reduceMotion.matches) {
+        aircraft.setAttribute('transform', `translate(${point.x} ${point.y}) rotate(${angle})`);
+        if (device) device.style.setProperty('--device-shift', `${Math.max(-10, Math.min(10, (progress - 0.08) * -35))}px`);
+      }
+      waypoints.forEach((waypoint) => waypoint.classList.toggle('passed', progress >= Number(waypoint.dataset.at)));
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', measure, { passive: true });
+    reduceMotion.addEventListener('change', measure);
+    measure();
+  }
+</script>
+
+<style>
+  .flight-path{inset:0;overflow:hidden;pointer-events:none;position:absolute;z-index:0}.flight-path svg{height:100%;overflow:visible;width:100%}.route{fill:none;vector-effect:non-scaling-stroke}.route-shadow{stroke:var(--surface-solid);stroke-width:8}.route-dashes{stroke:color-mix(in srgb,var(--accent),transparent 57%);stroke-dasharray:10 14;stroke-linecap:round;stroke-width:2}.aircraft{color:var(--accent);filter:drop-shadow(0 4px 6px color-mix(in srgb,var(--accent),transparent 65%));opacity:0}.aircraft path{fill:currentColor;stroke:var(--surface-solid);stroke-width:2;vector-effect:non-scaling-stroke}:global(.motion-ready) .aircraft{opacity:1}.aircraft-glow{fill:var(--accent);opacity:.1}.waypoints circle{fill:var(--bg);stroke:color-mix(in srgb,var(--accent),transparent 35%);stroke-width:2;transition:fill .35s ease,transform .35s ease;transform-box:fill-box;transform-origin:center;vector-effect:non-scaling-stroke}.waypoints circle.passed{fill:var(--accent);transform:scale(1.35)}
+  @media(max-width:780px){.flight-path{left:calc(50% - 270px);width:540px}.route-shadow{stroke-width:6}.route-dashes{opacity:.52}.aircraft-art{transform:scale(1,.36);transform-box:fill-box;transform-origin:center}}
+  @media(prefers-reduced-motion:reduce){.route-dashes{stroke-dasharray:10 14!important;stroke-dashoffset:0!important;opacity:.3}.aircraft{display:none}.waypoints circle{transform:none!important}}
+</style>

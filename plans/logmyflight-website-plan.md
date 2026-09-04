@@ -49,3 +49,11 @@ The visual direction will use Apple-inspired principles—generous whitespace, s
 - Developer name, support email, custom domain, App Store URL, app icon, final copy, and screenshots remain centralized placeholders until supplied.
 - All public placeholders, legal identifiers, and links must be finalized before App Store review.
 - Privacy and terms copy are starter drafts rather than legal advice and should be reviewed for applicable jurisdictions before publication.
+
+## Aviation Motion Enhancement
+
+- Add a decorative SVG flight path from the hero through the feature cards to the privacy section, with a minimal aircraft following scroll progress and activating route waypoints.
+- Keep the implementation dependency-free using one passive scroll listener, `requestAnimationFrame`, cached geometry, and an intersection observer for content reveals.
+- Add restrained hero cloud drift and slight screenshot-device depth while keeping all interactive content above the decorative layer.
+- Use a simplified route on mobile. Under reduced-motion preferences, show a faint static route, hide the aircraft, disable cloud drift and parallax, and reveal all content immediately.
+- Keep support and legal routes calm and unchanged.
