@@ -1,34 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ScreenshotPlaceholder from '../components/ScreenshotPlaceholder.astro';
-import FlightPath from '../components/FlightPath.astro';
-import { launchPlaceholders, site } from '../config/site';
-const schema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: site.name, applicationCategory: 'UtilitiesApplication', operatingSystem: 'iOS, iPadOS', description: site.description, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, url: site.canonicalUrl };
 ---
-<BaseLayout>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
-  <div class="flight-journey" data-flight-journey>
-    <FlightPath />
-    <div class="hero-cloud cloud-one" aria-hidden="true"></div><div class="hero-cloud cloud-two" aria-hidden="true"></div>
-    <section class="hero container">
-      <div class="hero-copy" data-reveal><p class="eyebrow">A logbook made for pilots</p><h1>Every flight.<br /><span>Your way.</span></h1><p class="lede">Log flights quickly, shape your logbook around the way you fly, and keep your records in your private iCloud account.</p><div class="actions"><a class="button" href={site.appStoreUrl} aria-label="Download LogMyFlight on the App Store">Download on the App Store</a><a class="learn" href="#features">Explore features <span aria-hidden="true">↓</span></a></div><p class="compatibility">Free at launch · Designed for iPhone and iPad</p></div>
-      <div class="hero-device" data-flight-device><ScreenshotPlaceholder label="Logbook overview" /></div>
-    </section>
-    <section class="intro container" aria-labelledby="intro-title" data-reveal><p class="eyebrow">Simply capable</p><h2 id="intro-title">Less time managing.<br />More time flying.</h2><p class="lede">Built for student and private pilots who want fast entry without giving up the freedom to make their logbook their own.</p></section>
-    <section class="features container" id="features" aria-label="Features">
-      <article class="feature large" data-reveal><div class="feature-copy"><p class="eyebrow">Fast entry</p><h3>From touchdown to logged.</h3><p>Capture the details of each flight with a focused workflow designed to keep things moving.</p></div><ScreenshotPlaceholder label="New flight entry" /></article>
-      <article class="feature" data-reveal><div class="feature-copy"><p class="eyebrow">Customisable</p><h3>A logbook that fits you.</h3><p>Adapt your records to the way you train, fly, and prefer to see your information.</p></div><ScreenshotPlaceholder label="Customisation" /></article>
-      <article class="feature" data-reveal><div class="feature-copy"><p class="eyebrow">Your memories</p><h3>Keep the view with the flight.</h3><p>Attach only the photos you choose, so a flight can hold more than numbers and notes.</p></div><ScreenshotPlaceholder label="Flight with photo" /></article>
-    </section>
-    <section class="privacy-section"><div class="privacy-card container" data-reveal><div class="cloud" aria-hidden="true">☁</div><div><p class="eyebrow">Private by design</p><h2>Your logbook stays yours.</h2><p class="lede">Your flight records synchronize through CloudKit in your Apple account. We do not operate an account system, run advertising trackers, or have access to your logbook data.</p><a href="/privacy/">Read our privacy policy <span aria-hidden="true">→</span></a></div></div></section>
-  </div>
-  <section class="closing container"><p class="eyebrow">Ready for your next flight</p><h2>Start your logbook.</h2><p class="lede">Fast to use. Flexible by design. Private at its core.</p><a class="button" href={site.appStoreUrl}>Download on the App Store</a></section>
-  <aside class="dev-notice container notice" aria-label="Launch placeholders"><strong>Development note:</strong> {launchPlaceholders}</aside>
+<BaseLayout title="LogMyFlight Privacy Policy" description="Privacy policy for LogMyFlight.">
+  <section class="privacy-home container">
+    <div>
+      <p class="eyebrow">LogMyFlight</p>
+      <h1>Privacy Policy</h1>
+      <p class="lede">This site currently provides the privacy policy needed for LogMyFlight's App Store submission.</p>
+      <a class="button" href="/privacy/">Read the Privacy Policy</a>
+    </div>
+  </section>
 </BaseLayout>
+
 <style>
-  .hero{align-items:center;display:grid;gap:clamp(3rem,8vw,7rem);grid-template-columns:1.1fr .7fr;min-height:calc(100vh - 58px);overflow:hidden;padding-block:72px}.hero h1 span{color:var(--accent)}.hero .lede{margin-top:1.6rem;max-width:620px}.actions{align-items:center;display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:2rem}.learn{color:var(--text);font-weight:600;text-decoration:none}.compatibility{color:var(--muted);font-size:.82rem;margin-top:1rem}.hero-device{animation:enter .8s ease both;transform:rotate(2deg)}.intro{max-width:900px;padding-block:140px 80px;text-align:center}.intro h2{margin:.7rem 0 1.4rem}.intro .lede{margin-inline:auto;max-width:710px}.features{display:grid;gap:24px;grid-template-columns:repeat(2,1fr);padding-bottom:120px}.feature{background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--radius);display:grid;gap:3rem;overflow:hidden;padding:clamp(2rem,5vw,4rem)}.feature.large{align-items:center;grid-column:1/-1;grid-template-columns:1fr .8fr}.feature-copy h3{font-size:clamp(2rem,4vw,3.5rem);margin:.65rem 0 1rem}.feature-copy>p:last-child{color:var(--muted);font-size:1.1rem}.feature:not(.large) :global(.device){max-width:230px}.privacy-section{background:var(--surface-solid);padding-block:130px}.privacy-card{align-items:center;display:grid;gap:4rem;grid-template-columns:220px 1fr}.cloud{align-items:center;aspect-ratio:1;background:var(--accent-soft);border-radius:50%;color:var(--accent);display:flex;font-size:6rem;justify-content:center}.privacy-card h2{margin:.7rem 0 1.2rem}.privacy-card a{display:inline-block;font-weight:650;margin-top:1.3rem;text-decoration:none}.closing{padding-block:140px;text-align:center}.closing h2{margin:.7rem 0 1rem}.closing .button{margin-top:2rem}.dev-notice{margin-bottom:80px}@keyframes enter{from{opacity:0;transform:translateY(24px) rotate(2deg)}}
-  @media(max-width:780px){.hero{grid-template-columns:1fr;min-height:auto;text-align:center}.hero .lede{margin-inline:auto}.actions{justify-content:center}.hero-device{margin-inline:auto;max-width:280px}.features{grid-template-columns:1fr}.feature.large{grid-column:auto;grid-template-columns:1fr}.privacy-card{grid-template-columns:1fr;text-align:center}.cloud{margin-inline:auto;width:160px}}
-  .flight-journey{isolation:isolate;overflow:hidden;position:relative}.flight-journey>section{position:relative;z-index:1}.hero-device{--device-shift:0px;animation:none;transform:translateY(var(--device-shift)) rotate(2deg);transition:transform .25s ease-out}.hero-cloud{background:var(--surface-solid);border-radius:999px;filter:blur(1px);height:54px;opacity:.55;pointer-events:none;position:absolute;width:170px;z-index:0}.hero-cloud::before,.hero-cloud::after{background:inherit;border-radius:50%;content:"";position:absolute}.hero-cloud::before{height:72px;left:30px;top:-30px;width:72px}.hero-cloud::after{height:96px;right:20px;top:-50px;width:96px}.cloud-one{animation:cloud-drift 18s ease-in-out infinite alternate;right:4%;top:9%}.cloud-two{animation:cloud-drift 24s ease-in-out -7s infinite alternate-reverse;left:3%;opacity:.3;top:22%;transform:scale(.7)}.motion-ready [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}.motion-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}.motion-ready .features [data-reveal]:nth-child(2){transition-delay:.08s}.motion-ready .features [data-reveal]:nth-child(3){transition-delay:.16s}@keyframes cloud-drift{to{transform:translate3d(-55px,18px,0)}}
-  @media(max-width:780px){.hero-cloud{opacity:.28}.cloud-one{right:-70px}.cloud-two{left:-80px}.hero-device{transform:translateY(calc(var(--device-shift) * .45)) rotate(1deg)}}
-  @media(prefers-reduced-motion:reduce){.hero-cloud{animation:none}.hero-device{transform:rotate(2deg)}.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}
+  .privacy-home {
+    align-items: center;
+    display: grid;
+    min-height: calc(100vh - 58px);
+    padding-block: 72px;
+  }
+
+  .privacy-home > div {
+    max-width: 760px;
+  }
+
+  .privacy-home h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin: .7rem 0 1rem;
+  }
+
+  .privacy-home .button {
+    margin-top: 2rem;
+  }
 </style>

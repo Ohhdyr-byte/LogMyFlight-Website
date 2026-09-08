@@ -11,10 +11,10 @@ const { label, device = 'phone' } = Astro.props;
 </div>
 
 <style>
-  .device { background: #151517; border: 2px solid #38383b; box-shadow: var(--shadow); margin-inline: auto; padding: 9px; }
-  .phone { aspect-ratio: 9 / 19.5; border-radius: 42px; max-width: 310px; }
-  .tablet { aspect-ratio: 4 / 5.3; border-radius: 32px; max-width: 470px; }
-  .screen { align-items: center; background: linear-gradient(145deg, #eaf5ff, #bddfff); border-radius: inherit; color: #16476e; display: flex; flex-direction: column; height: 100%; justify-content: center; padding: 2rem; text-align: center; }
+  .device { --device-radius: 42px; align-self: center; background: #151517; border: 2px solid #38383b; border-radius: var(--device-radius); box-shadow: var(--shadow); display: flex; margin-inline: auto; overflow: hidden; padding: 9px; width: 100%; }
+  .phone { aspect-ratio: 9 / 19.5; max-width: 310px; }
+  .tablet { --device-radius: 32px; aspect-ratio: 4 / 5.3; max-width: 470px; }
+  .screen { align-items: center; background: linear-gradient(145deg, #eaf5ff, #bddfff); border-radius: calc(var(--device-radius) - 11px); color: #16476e; display: flex; flex: 1; flex-direction: column; justify-content: center; min-height: 0; min-width: 0; padding: 2rem; text-align: center; }
   .flight-icon { font-size: 3rem; margin-bottom: 1rem; }
   small { margin-top: .35rem; opacity: .68; }
   @media (prefers-color-scheme: dark) { .screen { background: linear-gradient(145deg, #153754, #071625); color: #c9e8ff; } }

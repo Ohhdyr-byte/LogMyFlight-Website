@@ -1,28 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../config/site';
 ---
-<BaseLayout title="Privacy Policy" description="How LogMyFlight handles your information and protects your flight records.">
+<BaseLayout title="Privacy Policy" description="How Bruce Davidson handles information when you use LogMyFlight or visit this website.">
   <article class="legal-page container">
-    <p class="eyebrow">Privacy policy</p><h1>Your data stays yours.</h1>
-    <p class="notice"><strong>Before launch:</strong> Replace the developer identity, email address, effective date, and all TODO text, then have this starter policy reviewed for the countries where the app is offered.</p>
-    <p><strong>Effective date:</strong> {site.privacyEffectiveDate}</p>
-    <p>This policy explains how {site.developerName} (“we”, “us”) handles information when you use LogMyFlight or visit this website.</p>
-    <h2>Flight records and CloudKit</h2>
-    <p>LogMyFlight stores and synchronizes your flight records using Apple CloudKit. This information is associated with your Apple account and stored in your private CloudKit database. We do not operate a separate LogMyFlight account service and cannot access the flight records in your private database.</p>
-    <p>CloudKit is operated by Apple and is also subject to Apple’s privacy and iCloud terms.</p>
-    <h2>Photos you select</h2>
-    <p>LogMyFlight can receive the specific photos you choose to attach to a flight. Selecting a photo does not give the app unrestricted access to your entire photo library. Selected attachments form part of your app data and may synchronize with your records through CloudKit.</p>
-    <h2>Analytics, advertising, and tracking</h2>
-    <p>LogMyFlight and this website do not use third-party analytics, advertising SDKs, cross-site tracking, or advertising cookies. This website does not create user accounts or submit information through web forms.</p>
-    <h2>Retention and deletion</h2>
-    <p>Your records remain in your private CloudKit storage until you delete them through the app or Apple’s applicable iCloud controls. TODO: Confirm and document the released app’s precise deletion behavior, including whether deletion synchronizes across devices and how photo attachments are handled.</p>
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective date:</strong> 2026-09-05</p>
+    <p>This policy explains how Bruce Davidson (“we”, “us”) handles information when you use LogMyFlight or visit this website.</p>
+
+    <h2>Flight Records and iCloud</h2>
+    <p>LogMyFlight stores your logbook data on your device and uses Apple's CloudKit service to synchronize your data through iCloud where iCloud synchronization is available.</p>
+    <p>Data synchronized through CloudKit is associated with your Apple account and stored in your private CloudKit database. We do not operate a separate LogMyFlight account service or server for storing your logbook data, and your private logbook data is not sent to us.</p>
+    <p>CloudKit is operated by Apple and its use is also subject to Apple's applicable privacy and iCloud terms.</p>
+
+    <h2>Photos</h2>
+    <p>LogMyFlight allows you to select photos to attach to your flights. The app receives only the photos you choose through Apple's photo picker and does not require unrestricted access to your photo library.</p>
+    <p>Selected photos form part of your LogMyFlight data and may be synchronized through iCloud using CloudKit.</p>
+
+    <h2>Location</h2>
+    <p>Some LogMyFlight features may use your device's location, such as location-based or flight recording features.</p>
+    <p>Location access is provided using Apple's system APIs and requires the appropriate permission from you. LogMyFlight does not use your location for advertising or tracking, and your location information is not sent to us.</p>
+    <p>You can control LogMyFlight's access to your location through your device's privacy settings.</p>
+
+    <h2>Analytics, Advertising and Tracking</h2>
+    <p>LogMyFlight and this website do not use third-party analytics, advertising SDKs, cross-site tracking, or advertising cookies.</p>
+    <p>We do not sell your personal information or use your information for advertising.</p>
+    <p>This website does not create user accounts or collect information through web forms.</p>
+
+    <h2>Retention and Deletion</h2>
+    <p>Your LogMyFlight data remains on your device and, where synchronized, within your private iCloud storage until it is deleted.</p>
+    <p>You can delete individual records within LogMyFlight or use the <strong>Delete All Data</strong> option in Data Management to delete all of your LogMyFlight data.</p>
+    <p>Where data has been synchronized with iCloud, deletions are synchronized through Apple's CloudKit service.</p>
+    <p>Deleting LogMyFlight from a device does not necessarily delete data that has already been synchronized with iCloud.</p>
+
     <h2>Children</h2>
-    <p>LogMyFlight is a general-audience pilot utility and is not directed specifically to children. We do not knowingly operate a service that collects children’s personal information.</p>
-    <h2>Changes to this policy</h2>
-    <p>We may revise this policy if the app’s features or data practices change. The effective date above will be updated when a revised policy is published.</p>
+    <p>LogMyFlight is a general-audience pilot utility and is not directed specifically to children. We do not knowingly operate a service that collects children's personal information.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may revise this policy if LogMyFlight's features or data practices change. The effective date above will be updated when a revised policy is published.</p>
+
     <h2>Contact</h2>
-    <p>Questions or privacy requests can be sent to <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>. Because we cannot access private CloudKit flight records, some data requests may need to be completed by you through the app or your Apple account.</p>
+    <p>Questions about this privacy policy can be sent to:</p>
+    <p><strong>[your support email]</strong></p>
+    <p>Because your private CloudKit data is not provided to us, requests relating to that data may need to be completed through LogMyFlight or your Apple account.</p>
   </article>
 </BaseLayout>
-

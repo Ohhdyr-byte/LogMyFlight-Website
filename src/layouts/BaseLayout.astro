@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { navigation, site } from '../config/site';
+import { site } from '../config/site';
 
 interface Props {
   title?: string;
@@ -54,17 +54,16 @@ const socialImage = new URL(image, site.canonicalUrl);
           {site.name}
         </a>
         <div class="links">
-          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
-          <a class="nav-download" href={site.appStoreUrl}>Download</a>
+          <a href="/privacy/">Privacy</a>
         </div>
       </nav>
     </header>
     <main id="main-content"><slot /></main>
     <footer>
       <div class="container footer-grid">
-        <div><strong>{site.name}</strong><p>A private, flexible flight logbook for iPhone and iPad.</p></div>
+        <div><strong>{site.name}</strong><p>Privacy policy for LogMyFlight.</p></div>
         <nav aria-label="Footer navigation">
-          <a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>
+          <a href="/privacy/">Privacy</a>
         </nav>
         <p class="copyright">© {new Date().getFullYear()} {site.developerName}</p>
       </div>
@@ -82,13 +81,11 @@ const socialImage = new URL(image, site.canonicalUrl);
   .links { align-items: center; display: flex; gap: 1.5rem; }
   .links a { color: var(--text); font-size: .82rem; text-decoration: none; }
   .links a:hover { color: var(--accent); }
-  .nav-download { background: var(--accent); border-radius: 999px; color: white !important; padding: .38rem .8rem; }
   footer { border-top: 1px solid var(--line); padding: 3rem 0; }
   .footer-grid { align-items: start; display: grid; gap: 1.5rem; grid-template-columns: 1fr auto; }
   footer p { color: var(--muted); font-size: .82rem; margin-top: .25rem; }
   footer nav { display: flex; gap: 1.2rem; }
   footer nav a { color: var(--muted); font-size: .82rem; }
   .copyright { grid-column: 1 / -1; }
-  @media (max-width: 650px) { .links a:not(.nav-download) { display: none; } .footer-grid { grid-template-columns: 1fr; } .copyright { grid-column: auto; } }
+  @media (max-width: 650px) { .footer-grid { grid-template-columns: 1fr; } .copyright { grid-column: auto; } }
 </style>
-

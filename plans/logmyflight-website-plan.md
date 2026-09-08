@@ -57,3 +57,19 @@ The visual direction will use Apple-inspired principles—generous whitespace, s
 - Add restrained hero cloud drift and slight screenshot-device depth while keeping all interactive content above the decorative layer.
 - Use a simplified route on mobile. Under reduced-motion preferences, show a faint static route, hide the aircraft, disable cloud drift and parallax, and reveal all content immediately.
 - Keep support and legal routes calm and unchanged.
+
+## Customization-First Homepage
+
+- Make “Your logbook, your way” the hero promise, supported by ease of use rather than presenting fast entry as the primary differentiator.
+- Add an adaptive light/dark HTML/CSS product demonstration based on the supplied app references. It shows Instrument Time and IFR Actual being hidden from both settings and a flight-entry preview while essential fields remain.
+- Auto-play the comparison once on viewport entry and provide accessible state, pause/play, and replay controls. Manual input cancels automatic changes; reduced-motion mode starts in the simplified state.
+- Explain that most built-in fields can be shown or hidden, pilots can create fields such as NM Travelled, dashboard cards are selectable, and records support relevant filters.
+- Order supporting stories as easy entry, selected insights/filtering, privacy, then photos as a secondary benefit.
+
+## Direct Field-Toggle Demo Refinement
+
+- Remove automatic playback, replay, and preset-state controls from the customization demonstration.
+- Make Day, Night, Instrument Time, and IFR Actual independent accessible switches that immediately show or hide their matching flight-entry preview rows; required Off Block and On Block fields remain fixed.
+- Present both reconstructed screens at a modern iPhone `9 / 19.5` aspect ratio and retain side-by-side phones at supported responsive widths.
+- Replace the font-based add symbol with mathematically centered inline SVG geometry.
+- Announce each visibility change through a live region, disable row transitions for reduced motion, and show every field when JavaScript is unavailable.
