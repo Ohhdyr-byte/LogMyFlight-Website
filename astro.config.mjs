@@ -3,5 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com', // TODO: Replace with the production custom domain.
+  site: 'https://ohhdyr-byte.github.io', 
+  base: '/LogMyFlight-Website'
 });
