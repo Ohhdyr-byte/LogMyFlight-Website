@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const privacyUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}privacy/`;
 ---
 <BaseLayout title="LogMyFlight Privacy Policy" description="Privacy policy for LogMyFlight.">
   <section class="privacy-home container">
@@ -7,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">LogMyFlight</p>
       <h1>Privacy Policy</h1>
       <p class="lede">This site currently provides the privacy policy needed for LogMyFlight's App Store submission.</p>
-      <a class="button" href="/privacy/">Read the Privacy Policy</a>
+      <a class="button" href={privacyUrl}>Read the Privacy Policy</a>
     </div>
   </section>
 </BaseLayout>
