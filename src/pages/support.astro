@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const privacyUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}privacy/`;
+---
+<BaseLayout title="Support" description="Support information and privacy policy details for LogMyFlight.">
+  <article class="legal-page container support-page">
+    <p class="eyebrow">LogMyFlight</p>
+    <h1>Support</h1>
+    <p class="lede">Need help with LogMyFlight? Send support questions, bug reports, or privacy questions to:</p>
+    <p class="support-email"><a href="mailto:support@waypointcore.com">support@waypointcore.com</a></p>
+
+    <h2>Privacy Policy</h2>
+    <p>LogMyFlight stores your flight logbook data on your device and uses Apple's CloudKit service to synchronize your data through iCloud where iCloud synchronization is available.</p>
+    <p>We do not operate a separate LogMyFlight account service or server for storing your private logbook data, and your private logbook data is not sent to us.</p>
+    <p>LogMyFlight and this website do not use third-party analytics, advertising SDKs, cross-site tracking, or advertising cookies.</p>
+    <p>The full privacy policy is available here:</p>
+    <p><a class="button" href={privacyUrl}>Read the Privacy Policy</a></p>
+
+    <h2>Deleting Your Data</h2>
+    <p>You can delete individual records within LogMyFlight or use the <strong>Delete All Data</strong> option in Data Management to delete all of your LogMyFlight data.</p>
+    <p>Where data has been synchronized with iCloud, deletions are synchronized through Apple's CloudKit service.</p>
+
+    <h2>App Store Submission Details</h2>
+    <p>This page provides the support contact and privacy policy information for LogMyFlight's App Store listing.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .support-page .lede {
+    margin-top: 1rem;
+  }
+
+  .support-email {
+    font-size: clamp(1.25rem, 3vw, 1.7rem);
+    font-weight: 700;
+    margin-top: 1.5rem;
+  }
+
+  .support-page .button {
+    margin-top: .35rem;
+  }
+</style>

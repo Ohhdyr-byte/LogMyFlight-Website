@@ -1,14 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const supportUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}support/`;
 const privacyUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}privacy/`;
 ---
-<BaseLayout title="LogMyFlight Privacy Policy" description="Privacy policy for LogMyFlight.">
+<BaseLayout title="LogMyFlight Support" description="Support and privacy policy information for LogMyFlight.">
   <section class="privacy-home container">
     <div>
       <p class="eyebrow">LogMyFlight</p>
-      <h1>Privacy Policy</h1>
-      <p class="lede">This site currently provides the privacy policy needed for LogMyFlight's App Store submission.</p>
-      <a class="button" href={privacyUrl}>Read the Privacy Policy</a>
+      <h1>Support</h1>
+      <p class="lede">Support contact and privacy policy information for LogMyFlight's App Store submission.</p>
+      <div class="actions">
+        <a class="button" href={supportUrl}>Get Support</a>
+        <a class="button secondary" href={privacyUrl}>Privacy Policy</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -30,7 +34,10 @@ const privacyUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}privacy/`;
     margin: .7rem 0 1rem;
   }
 
-  .privacy-home .button {
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
     margin-top: 2rem;
   }
 </style>

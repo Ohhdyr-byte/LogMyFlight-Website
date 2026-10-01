@@ -32,8 +32,8 @@ const withBase = (path: string) => `${base}${path.replace(/^\//, '')}`;
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
-    <link rel="icon" href={withBase('/favicon.ico')} />
+    <link rel="icon" type="image/png" href={withBase('/LogMyFlight_Icon_Rev1-iOS-Default-1024x1024@1x.png')} />
+    <link rel="apple-touch-icon" href={withBase('/LogMyFlight_Icon_Rev1-iOS-Default-1024x1024@1x.png')} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={pageTitle} />
@@ -56,6 +56,7 @@ const withBase = (path: string) => `${base}${path.replace(/^\//, '')}`;
           {site.name}
         </a>
         <div class="links">
+          <a href={withBase('/support/')}>Support</a>
           <a href={withBase('/privacy/')}>Privacy</a>
         </div>
       </nav>
@@ -63,8 +64,9 @@ const withBase = (path: string) => `${base}${path.replace(/^\//, '')}`;
     <main id="main-content"><slot /></main>
     <footer>
       <div class="container footer-grid">
-        <div><strong>{site.name}</strong><p>Privacy policy for LogMyFlight.</p></div>
+        <div><strong>{site.name}</strong><p>Support and privacy information for LogMyFlight.</p></div>
         <nav aria-label="Footer navigation">
+          <a href={withBase('/support/')}>Support</a>
           <a href={withBase('/privacy/')}>Privacy</a>
         </nav>
         <p class="copyright">© {new Date().getFullYear()} {site.developerName}</p>
