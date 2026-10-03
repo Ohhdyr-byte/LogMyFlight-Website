@@ -1,3 +1,3 @@
-# LogMyFlight Website
+# Fliteable Website
 
-Static promotional, support, privacy, and terms website for LogMyFlight.
+Static promotional, support, privacy, and terms website for Fliteable.
